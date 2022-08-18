@@ -1,3 +1,5 @@
+import 'package:animations/controllers/animated_builder/animated_rotation_controller.dart';
+import 'package:animations/controllers/animated_builder/animated_slide_controller.dart';
 import 'package:animations/controllers/fade_transition_controller.dart';
 import 'package:animations/controllers/neumorphism_controller.dart';
 import 'package:animations/controllers/rotation_controller.dart';
@@ -14,5 +16,7 @@ class AwaitBindings extends Bindings {
     await Get.putAsync(() async => SlideTransitionController(), permanent: true);
     await Get.putAsync(() async => RotationController(), permanent: true); 
     await Get.putAsync(() async => NeumorphismController(), permanent: true); 
+    await Get.putAsync(() async => AnimatedBuilderRotationController(), permanent: true);
+    await Get.putAsync(() async => AnimatedBuilderSlideController(), permanent: true);
   }
 }
