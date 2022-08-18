@@ -1,7 +1,10 @@
 import 'package:animations/controllers/fade_transition_controller.dart';
+import 'package:animations/controllers/neumorphism_controller.dart';
 import 'package:animations/controllers/size_transition_controller.dart';
 import 'package:animations/controllers/slide_transition_controller.dart';
 import 'package:animations/screen_animations/fade_transition_page.dart';
+import 'package:animations/screen_animations/neumorphism_page.dart';
+import 'package:animations/screen_animations/rotation_animation_page.dart';
 import 'package:animations/screen_animations/size_transition_page.dart';
 import 'package:animations/screen_animations/slide_transition_page.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,7 @@ class MainPage extends StatelessWidget {
   final FadeTransitionController _fc = Get.find();
   final SizeTransitionController _sc = Get.find();
   final SlideTransitionController _stc = Get.find();
+  final NeumorphismController _nc = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +41,14 @@ class MainPage extends StatelessWidget {
                   children: [
                     pageRouteBox(context, 'Fade Transition Page',
                         () => routeToFadeTransitionPage()),
-
                     pageRouteBox(context, 'Size Transition Page',
                         () => routeToSizeTransitionPage()),
-
                     pageRouteBox(context, 'Slide Transition Page',
-                        () => routeToSlideTransitionPage()),         
+                        () => routeToSlideTransitionPage()),
+                    pageRouteBox(
+                        context, 'Rotation Page', () => routeToRotationPage()),
+                    pageRouteBox(context, 'Neumorphisim Page',
+                        () => routeToNeumorphicPage())
                   ],
                 ),
               ),
@@ -62,11 +68,11 @@ class MainPage extends StatelessWidget {
           child: Card(
             child: Align(
                 alignment: Alignment.center,
-                child:
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
-                    )),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child:
+                      Text(text, style: Theme.of(context).textTheme.bodyMedium),
+                )),
           ),
         ),
       );
@@ -76,13 +82,22 @@ class MainPage extends StatelessWidget {
     Get.to(() => FadeTransitionPage());
   }
 
-  routeToSizeTransitionPage(){
+  routeToSizeTransitionPage() {
     _sc.onPageInit();
     Get.to(() => SizeTransitionPage());
   }
 
-  routeToSlideTransitionPage(){
+  routeToSlideTransitionPage() {
     _stc.onPageInit();
     Get.to(() => SlideTransitionPage());
+  }
+
+  routeToRotationPage() {
+    Get.to(() => RotationAnimationPage());
+  }
+
+  routeToNeumorphicPage() {
+    _nc.initAnimate();
+    Get.to(() => NeumorphismPage());
   }
 }
