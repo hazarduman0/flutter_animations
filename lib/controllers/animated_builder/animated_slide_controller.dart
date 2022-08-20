@@ -59,6 +59,8 @@ class AnimatedBuilderSlideController extends GetxController
 
   disposePage() {
     _isClicked.value = false;
+    _isAnimated.value = false;
     _animationController.value!.dispose();
+    update();
   }
 }
