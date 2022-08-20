@@ -1,11 +1,13 @@
 import 'package:animations/controllers/animated_builder/animated_rotation_controller.dart';
 import 'package:animations/controllers/animated_builder/animated_slide_controller.dart';
+import 'package:animations/controllers/animated_builder/animated_transform_controller.dart';
 import 'package:animations/controllers/fade_transition_controller.dart';
 import 'package:animations/controllers/neumorphism_controller.dart';
 import 'package:animations/controllers/size_transition_controller.dart';
 import 'package:animations/controllers/slide_transition_controller.dart';
 import 'package:animations/screen_animations/animated_builder/rotation_page.dart';
 import 'package:animations/screen_animations/animated_builder/slide_page.dart';
+import 'package:animations/screen_animations/animated_builder/transform_page.dart';
 import 'package:animations/screen_animations/fade_transition_page.dart';
 import 'package:animations/screen_animations/neumorphism_page.dart';
 import 'package:animations/screen_animations/rotation_animation_page.dart';
@@ -24,6 +26,7 @@ class MainPage extends StatelessWidget {
   final NeumorphismController _nc = Get.find();
   final AnimatedBuilderRotationController _arc = Get.find();
   final AnimatedBuilderSlideController _asc = Get.find();
+  final AnimatedBuilderTransformController _atc = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +61,12 @@ class MainPage extends StatelessWidget {
                         () => routeToNeumorphicPage()),
                     pageRouteBox(context, 'Tween Animation Demo',
                         () => routeToTweenAnimationDemo()),
-                    pageRouteBox(context, 'ABRotation', () => routeToAnimatedBuilderRotationPage()),
-                    pageRouteBox(context, 'ABSlide', () => routeToAnimatedBuilderSlidePage())    
+                    pageRouteBox(context, 'ABRotation',
+                        () => routeToAnimatedBuilderRotationPage()),
+                    pageRouteBox(context, 'ABSlide',
+                        () => routeToAnimatedBuilderSlidePage()),
+                    pageRouteBox(context, 'ABTransform',
+                        () => routeToAnimatedBuilderTransformPage())
                   ],
                 ),
               ),
@@ -116,13 +123,18 @@ class MainPage extends StatelessWidget {
     Get.to(() => TweenAnimationPage());
   }
 
-  routeToAnimatedBuilderRotationPage(){
+  routeToAnimatedBuilderRotationPage() {
     _arc.initController();
     Get.to(() => AnimatedBuilderRotationPage());
   }
 
-  routeToAnimatedBuilderSlidePage(){
+  routeToAnimatedBuilderSlidePage() {
     _asc.initController();
     Get.to(() => AnimatedBuilderSlidePage());
+  }
+
+  routeToAnimatedBuilderTransformPage() {
+    _atc.initController();
+    Get.to(() => AnimatedBuilderTransformPage());
   }
 }
