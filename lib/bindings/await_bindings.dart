@@ -1,6 +1,7 @@
 import 'package:animations/controllers/animated_builder/animated_rotation_controller.dart';
 import 'package:animations/controllers/animated_builder/animated_slide_controller.dart';
 import 'package:animations/controllers/animated_builder/animated_transform_controller.dart';
+import 'package:animations/controllers/custom_animation_controller/book_consept_controller.dart';
 import 'package:animations/controllers/fade_transition_controller.dart';
 import 'package:animations/controllers/neumorphism_controller.dart';
 import 'package:animations/controllers/rotation_controller.dart';
@@ -20,5 +21,6 @@ class AwaitBindings extends Bindings {
     await Get.putAsync(() async => AnimatedBuilderRotationController(), permanent: true);
     await Get.putAsync(() async => AnimatedBuilderSlideController(), permanent: true);
     await Get.putAsync(() async => AnimatedBuilderTransformController(), permanent: true);
+    await Get.putAsync(() async => BookConseptController(), permanent: true);
   }
 }
