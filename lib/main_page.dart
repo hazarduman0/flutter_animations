@@ -8,6 +8,7 @@ import 'package:animations/controllers/slide_transition_controller.dart';
 import 'package:animations/screen_animations/animated_builder/rotation_page.dart';
 import 'package:animations/screen_animations/animated_builder/slide_page.dart';
 import 'package:animations/screen_animations/animated_builder/transform_page.dart';
+import 'package:animations/screen_animations/custom_animations/custom_main.dart';
 import 'package:animations/screen_animations/fade_transition_page.dart';
 import 'package:animations/screen_animations/neumorphism_page.dart';
 import 'package:animations/screen_animations/rotation_animation_page.dart';
@@ -49,6 +50,9 @@ class MainPage extends StatelessWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3),
                   children: [
+                    pageRouteBox(
+                        context, 'Custom Main', () => routeToCustomMain(),
+                        color: Colors.blueAccent.shade100),
                     pageRouteBox(context, 'Fade Transition Page',
                         () => routeToFadeTransitionPage()),
                     pageRouteBox(context, 'Size Transition Page',
@@ -77,13 +81,15 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Widget pageRouteBox(BuildContext context, String text, Function()? onTap) =>
+  Widget pageRouteBox(BuildContext context, String text, Function()? onTap,
+          {Color? color}) =>
       GestureDetector(
         onTap: onTap,
         child: SizedBox(
           height: Get.height * 0.1,
           width: Get.width * 0.3,
           child: Card(
+            color: color,
             child: Align(
                 alignment: Alignment.center,
                 child: Padding(
@@ -94,6 +100,10 @@ class MainPage extends StatelessWidget {
           ),
         ),
       );
+
+  routeToCustomMain() {
+    Get.to(() => CustomMain());
+  }
 
   routeToFadeTransitionPage() {
     _fc.onPageInit();
