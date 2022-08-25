@@ -14,10 +14,8 @@ class SizeTransitionController extends GetxController
   onPageInit() {
    _animationController.value =  AnimationController(
         vsync: this,
-        duration: const Duration(seconds: 2)); //..repeat(reverse: true);
-
-    //_animationController.forward();    
-   
+        duration: const Duration(seconds: 2)); 
+  
      _animation.value =  CurvedAnimation(parent: _animationController.value!, curve: Curves.elasticOut);
      Timer(const Duration(milliseconds: 500), ()=> _animationController.value!.forward());
     update();

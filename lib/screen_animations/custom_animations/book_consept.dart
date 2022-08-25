@@ -30,6 +30,7 @@ class BookConsept extends StatelessWidget {
               valueListenable: bcc.notifierScroll!,
               builder: (context, value, _) {
                 return PageView.builder(
+                  physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                   controller: bcc.pageController,
                   itemCount: 10,
                   itemBuilder: (context, index) {
@@ -48,7 +49,6 @@ class BookConsept extends StatelessWidget {
 
   Widget listViewContainer(String conseptText, BuildContext context, double percentage) => GetBuilder<BookConseptController>(
     builder: (bcc) {
-      print('percentageFunc: $percentage');
       return Column(
         children: [
           SizedBox(height: Get.height * 0.1),

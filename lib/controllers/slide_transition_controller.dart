@@ -14,9 +14,7 @@ class SlideTransitionController extends GetxController
   onPageInit() {
     _animationController.value = AnimationController(
         vsync: this,
-        duration: const Duration(seconds: 2)); //..repeat(reverse: true);
-
-    //_animationController.forward();
+        duration: const Duration(seconds: 2)); 
 
     _animationOffset.value = Tween<Offset>(
       begin: const Offset(-2.0, 0.0),

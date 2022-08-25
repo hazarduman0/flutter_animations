@@ -121,7 +121,7 @@ class MainPage extends StatelessWidget {
   }
 
   routeToRotationPage() {
-    Get.to(() => RotationAnimationPage());
+    Get.to(() => const RotationAnimationPage());
   }
 
   routeToNeumorphicPage() {
@@ -130,7 +130,7 @@ class MainPage extends StatelessWidget {
   }
 
   routeToTweenAnimationDemo() {
-    Get.to(() => TweenAnimationPage());
+    Get.to(() => const TweenAnimationPage());
   }
 
   routeToAnimatedBuilderRotationPage() {

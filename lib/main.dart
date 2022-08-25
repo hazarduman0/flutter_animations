@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Animation Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(
             toolbarHeight: 100.0,
             backgroundColor: Colors.transparent,
